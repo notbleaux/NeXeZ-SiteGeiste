@@ -2,5 +2,6 @@
   "name": "@nuevue/services-agent-router",
   "version": "0.0.1",
   "private": true,
-  "type": "module"
+  "type": "module",
+  "description": "agent-router service workspace"
 }

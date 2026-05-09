@@ -2,26 +2,25 @@
 
 ## SATOR Stub Model
 
-This repository follows a staged SATOR model where stubs are treated as contract-first artifacts.
+NueVue uses a contract-first SATOR approach. Existing stub files are treated as sealed contracts unless explicitly reopened by the Foreman.
 
-### Sealed Contracts
-
-- Files under `stubs/PHASE-01/` are sealed and must not be modified in bootstrap or downstream implementation PRs unless explicitly reopened by the Foreman.
+- Do not modify existing files under `stubs/` unless a task explicitly permits it.
+- Do not modify existing files under `docs/architecture/` unless a task explicitly permits it.
+- Files in `stubs/PHASE-01/` are sealed contracts for this phase.
 
 ## Branch Discipline
 
-- Work from designated proposal branches.
-- Integrate through reviewed PRs into `dev`, then promote to `main` through protected release PRs.
-- Use `agents/blackboard` for shared collaboration artifacts.
+- `main` is protected and merge-only via pull request.
+- `dev` is the integration branch.
+- Agent work starts on one of the agent proposal branches: `claude/proposals`, `kimi/proposals`, `deepseek/proposals`, `copilot/proposals`.
+- `agents/blackboard` receives merged proposals after four-agent consensus.
 
 ## Vis-a-Vis-ID Requirement
 
-- Every coordination PR must include required Vis-a-Vis-ID signatures in comments and/or prescribed metadata.
-- Follow protocol updates from Claude (Foreman) as they are published.
+Every coordination PR must include the required Vis-a-Vis-ID signature comment in the prescribed format.
 
-## PR Title Taxonomy (Placeholder)
+## PR Title Taxonomy
 
-> To be defined by Claude in a follow-up PR. Keep this section heading stable to minimize churn.
-
-- Conventional commit scopes and title classes will be documented here.
-- Until then, use clear conventional-commit style PR titles.
+<!-- PR_TITLE_TAXONOMY_PLACEHOLDER_START -->
+This section is intentionally reserved for Claude to define the PR title taxonomy in a follow-up PR.
+<!-- PR_TITLE_TAXONOMY_PLACEHOLDER_END -->

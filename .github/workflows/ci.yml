@@ -28,19 +28,21 @@ jobs:
             exit 1
           fi
 
-      - name: Detect TypeScript files
+      - name: Validate workspaces with dry-run install
+        run: npm install --dry-run
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Detect TypeScript files in workspaces
         id: ts
         run: |
-          if find . -type f \( -name '*.ts' -o -name '*.tsx' -o -name '*.mts' -o -name '*.cts' \) | grep -q .; then
+          if find apps services packages -type f \( -name '*.ts' -o -name '*.tsx' -o -name '*.mts' -o -name '*.cts' \) | grep -q .; then
             echo "has_ts=true" >> "$GITHUB_OUTPUT"
           else
             echo "has_ts=false" >> "$GITHUB_OUTPUT"
           fi
 
-      - name: Install dependencies
+      - name: Typecheck
         if: steps.ts.outputs.has_ts == 'true'
-        run: npm install
-
-      - name: Typecheck workspaces
-        if: steps.ts.outputs.has_ts == 'true'
-        run: npm run typecheck
+        run: npx tsc --noEmit

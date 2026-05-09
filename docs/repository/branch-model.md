@@ -2,23 +2,21 @@
 
 ## Branches
 
-- `main`: protected production branch; direct pushes are disallowed.
-- `dev`: integration branch for validated cross-agent work.
-- `claude/proposals`: Claude proposal branch.
-- `kimi/proposals`: Kimi proposal branch.
-- `deepseek/proposals`: Deepseek proposal branch.
-- `copilot/proposals`: Copilot proposal branch.
-- `agents/blackboard`: shared collaborative branch for inter-agent coordination artifacts.
+- `main`: protected branch with PR-only merge policy.
+- `dev`: integration branch.
+- `claude/proposals`: Claude unique proposal branch.
+- `kimi/proposals`: Kimi unique proposal branch.
+- `deepseek/proposals`: Deepseek unique proposal branch.
+- `copilot/proposals`: Copilot unique proposal branch.
+- `agents/blackboard`: shared collaborative branch that receives merged proposals after the four-agent consensus check.
 
 ## Merge Policy
 
-1. Agents open PRs from their proposal branches.
-2. Proposal PRs are reviewed and merged into `dev` after validation.
-3. Integrated changes flow from `dev` to `main` through protected release PRs.
-4. Emergency fixes still require PR review and follow-up reconciliation into `dev`.
+1. No direct pushes to `main`; merge to `main` only through reviewed pull requests.
+2. Agent proposal work is created on each agent's unique proposal branch.
+3. Proposals are merged only after four-agent consensus criteria are satisfied.
+4. Consensus-approved proposals are merged into `agents/blackboard` for collaborative staging and then promoted through integration flow.
 
 ## Conflict Routing Rule
 
-- Semantic or architecture conflicts route to Claude (Foreman) for resolution.
-- Data-model or schema conflicts route first to the owning domain agent, then Claude if unresolved.
-- Process or branch-policy conflicts route to the repository owner for final arbitration.
+When proposals conflict, route each conflicting proposal back to the originating agent's unique branch for revision and trigger the human-review lobby state.

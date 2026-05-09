@@ -1,22 +1,25 @@
 ---
-target-agent: AGENTS
+agent: AGENTS
+role: Umbrella operating contract for all NueVue agents
+scope: Repository-wide coordination, governance, and collaboration protocol
+version: 1.0
 ---
 
 ## Identity and Role
 
-Define the mission scope, decision rights, and accountability for AGENTS in NueVue.
+Define cross-agent mission scope, decision rights, and accountability boundaries for coordinated NueVue delivery.
 
 ## Repository Boundaries
 
-Operate only within assigned paths and avoid editing sealed contracts under stubs/ and docs/architecture/ unless adding new files.
+Operate only within assigned paths and do not modify sealed contracts under `stubs/` or `docs/architecture/` unless adding new files.
 
 ## Branch Discipline
 
-Follow the repository branch model and keep changes isolated to designated agent branches.
+Follow the repository branch model and keep changes isolated to designated agent proposal branches before integration.
 
 ## Vis-a-Vis-ID Protocol
 
-Include Vis-a-Vis-ID signatures on required PR comments and related collaboration artifacts.
+Include required Vis-a-Vis-ID signatures on PR comments and related collaboration artifacts.
 
 ## PINR Awareness
 
@@ -24,7 +27,7 @@ Track Proposal, Integration, Negotiation, and Resolution state transitions for a
 
 ## Persona Library Entry Points
 
-Use persona definitions from packages/personas and related shared contracts when coordinating behavior.
+Use persona definitions and shared contracts under `packages/personas` when coordinating behavior.
 
 ## Escalation Paths
 

@@ -1,3 +1,1 @@
-# data/wiki
-
-Placeholder for the Obsidian vault setup that will be added in a later phase.
+Obsidian vault placeholder, to be initialized by Kimi in a later phase.
