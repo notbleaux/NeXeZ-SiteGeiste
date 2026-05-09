@@ -1,0 +1,7 @@
+{
+  "name": "@nuevue/personas",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "description": "NueVue agent persona definitions and library entry points"
+}

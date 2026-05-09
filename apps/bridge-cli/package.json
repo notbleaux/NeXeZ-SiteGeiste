@@ -1,0 +1,6 @@
+{
+  "name": "@nuevue/bridge-cli",
+  "version": "0.0.1",
+  "private": true,
+  "description": "CLI bridge for NueVue agent interactions and devtools"
+}

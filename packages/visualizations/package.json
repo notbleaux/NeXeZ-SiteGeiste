@@ -1,0 +1,7 @@
+{
+  "name": "@nuevue/visualizations",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "description": "NueVue visualization layer — SATORtree and live-streaming persona components"
+}

@@ -1,0 +1,6 @@
+{
+  "name": "@nuevue/agent-router",
+  "version": "0.0.1",
+  "private": true,
+  "description": "NueVue agent routing and dispatch service"
+}

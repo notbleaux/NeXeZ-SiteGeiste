@@ -1,0 +1,7 @@
+{
+  "name": "@nuevue/rag-core",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "description": "NueVue retrieval-augmented generation core library"
+}

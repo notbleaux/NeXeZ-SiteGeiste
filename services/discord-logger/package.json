@@ -1,0 +1,6 @@
+{
+  "name": "@nuevue/discord-logger",
+  "version": "0.0.1",
+  "private": true,
+  "description": "NueVue Discord logging and event mirror service"
+}

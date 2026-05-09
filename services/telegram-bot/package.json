@@ -1,0 +1,6 @@
+{
+  "name": "@nuevue/telegram-bot",
+  "version": "0.0.1",
+  "private": true,
+  "description": "NueVue Telegram bot integration service"
+}
