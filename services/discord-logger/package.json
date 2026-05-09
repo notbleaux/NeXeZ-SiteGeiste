@@ -1,0 +1,6 @@
+{
+  "name": "@nuevue/services-discord-logger",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module"
+}
