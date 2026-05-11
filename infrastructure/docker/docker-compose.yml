@@ -1,0 +1,77 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: nexez-postgres
+    environment:
+      POSTGRES_DB: nexez_db
+      POSTGRES_USER: nexez
+      POSTGRES_PASSWORD: nexez_dev_password
+    ports:
+      - '5432:5432'
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U nexez']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    container_name: nexez-redis
+    ports:
+      - '6379:6379'
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ['CMD', 'redis-cli', 'ping']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  webapp:
+    build:
+      context: ../..
+      dockerfile: infrastructure/docker/webapp.Dockerfile
+    container_name: nexez-webapp
+    ports:
+      - '3000:3000'
+    environment:
+      - NODE_ENV=development
+      - DATABASE_URL=postgresql://nexez:nexez_dev_password@postgres:5432/nexez_db
+      - REDIS_URL=redis://redis:6379
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    volumes:
+      - ../../packages/webapp:/app/packages/webapp
+      - /app/packages/webapp/node_modules
+      - /app/packages/webapp/.next
+
+  backend:
+    build:
+      context: ../..
+      dockerfile: infrastructure/docker/backend.Dockerfile
+    container_name: nexez-backend
+    ports:
+      - '3001:3001'
+    environment:
+      - NODE_ENV=development
+      - DATABASE_URL=postgresql://nexez:nexez_dev_password@postgres:5432/nexez_db
+      - REDIS_URL=redis://redis:6379
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    volumes:
+      - ../../packages/backend:/app/packages/backend
+      - /app/packages/backend/node_modules
+
+volumes:
+  postgres_data:
+  redis_data:
