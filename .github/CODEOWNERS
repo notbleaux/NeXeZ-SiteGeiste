@@ -1,0 +1,30 @@
+# Code Owners
+# Each line is a file pattern followed by one or more owners.
+# Owners will be requested for review when someone opens a PR.
+
+# Default owners for everything in the repo
+* @notbleaux
+
+# GitHub Configuration
+/.github/ @notbleaux
+
+# Documentation
+/docs/ @notbleaux
+
+# Packages
+/packages/shared/ @notbleaux
+/packages/webapp/ @notbleaux
+/packages/extension/ @notbleaux
+/packages/website/ @notbleaux
+/packages/backend/ @notbleaux
+
+# Infrastructure
+/infrastructure/ @notbleaux
+/scripts/ @notbleaux
+
+# Configuration files
+*.json @notbleaux
+*.yml @notbleaux
+*.yaml @notbleaux
+tsconfig*.json @notbleaux
+.eslintrc* @notbleaux
