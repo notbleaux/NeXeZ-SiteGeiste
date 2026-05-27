@@ -1,20 +1,4 @@
 {
-<<<<<<< HEAD
-  "name": "nuevue-monorepo",
-  "version": "0.0.1",
-  "private": true,
-  "description": "NueVue monorepo — AI-integrated user nexus platform",
-  "workspaces": [
-    "apps/*",
-    "services/*",
-    "packages/*"
-  ],
-  "engines": {
-    "node": ">=20"
-  },
-  "scripts": {
-    "typecheck": "npm run typecheck --workspaces --if-present"
-=======
   "name": "@njz/sitegeiste",
   "version": "0.1.0",
   "type": "module",
@@ -42,6 +26,5 @@
     "tailwindcss": "^3.4.3",
     "typescript": "^5.4.5",
     "vite": "^5.2.12"
->>>>>>> 90ce0ac (chore: add GitHub Pages deploy workflow + gh-pages CLI)
   }
 }
