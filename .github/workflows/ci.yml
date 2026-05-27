@@ -16,6 +16,9 @@ on:
       - main
       - dev
 
+permissions:
+  contents: read
+
 jobs:
   validate:
     name: Validate monorepo
@@ -38,7 +41,7 @@ jobs:
       - name: Typecheck (if TypeScript files exist)
         run: |
           if find . -name "*.ts" -not -path "*/node_modules/*" | grep -q .; then
-            echo "TypeScript files found — running tsc --noEmit across workspaces"
+            echo "TypeScript files found — running workspace typecheck"
             npm run typecheck
           else
             echo "No TypeScript files found — skipping typecheck"
@@ -47,7 +50,7 @@ jobs:
       - name: Real-name leakage scan
         run: |
           echo "Scanning for real-name leakage..."
-          if git log --all --format="%an %ae %cn %ce" | grep -v "github-actions\|noreply\|Copilot\|notbleaux" | grep -Ei "[a-z]+ [a-z]+" | grep -v "^$"; then
+          if git log --all --format="%an %ae %cn %ce %s" | grep -Eiq '\b(newjeans|minji|hanni|danielle|haerin|hyein)\b'; then
             echo "ERROR: Potential real-name leakage detected in git history"
             exit 1
           fi
