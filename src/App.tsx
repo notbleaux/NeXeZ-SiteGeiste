@@ -9,6 +9,12 @@ import { AISidebar } from './components/layout/AISidebar'
 import { MobileNav } from './components/layout/MobileNav'
 import { WelcomeModule } from './components/modules/WelcomeModule'
 import { FocusModule } from './components/modules/FocusModule'
+import { TasksModule } from './components/modules/TasksModule'
+import { SoundscapesModule } from './components/modules/SoundscapesModule'
+import { WritingModule } from './components/modules/WritingModule'
+import { BlockerModule } from './components/modules/BlockerModule'
+import { BrainTrainModule } from './components/modules/BrainTrainModule'
+import { SettingsModule } from './components/modules/SettingsModule'
 
 const WORKSPACES: Workspace[] = [
   { id: 'home', name: 'Home', icon: 'Home', modules: ['welcome', 'focus', 'tasks'] },
@@ -21,11 +27,11 @@ const WORKSPACES: Workspace[] = [
 const MODULES: Module[] = [
   { id: 'welcome', name: 'Welcome', icon: 'Sparkles', color: 'text-njz-accent-purple', description: 'Your NJZ dashboard', status: 'active' },
   { id: 'focus', name: 'Focus', icon: 'Target', color: 'text-njz-accent-teal', description: 'Pomodoro & deep work', status: 'active' },
-  { id: 'tasks', name: 'Tasks', icon: 'CheckSquare', color: 'text-njz-accent-green', description: 'To-do & planner', status: 'coming-soon' },
-  { id: 'soundscapes', name: 'Soundscapes', icon: 'Music', color: 'text-njz-accent-purple', description: 'Binaural beats & ambient', status: 'coming-soon' },
-  { id: 'blocker', name: 'Blocker', icon: 'Shield', color: 'text-njz-accent-red', description: 'Distraction blocking', status: 'coming-soon' },
-  { id: 'writing', name: 'Writing', icon: 'PenTool', color: 'text-njz-accent-orange', description: 'Manuscript & streaks', status: 'coming-soon' },
-  { id: 'brain-train', name: 'Brain Train', icon: 'Brain', color: 'text-njz-accent-teal', description: 'Cognitive training', status: 'coming-soon' },
+  { id: 'tasks', name: 'Tasks', icon: 'CheckSquare', color: 'text-njz-accent-green', description: 'To-do & planner', status: 'active' },
+  { id: 'soundscapes', name: 'Soundscapes', icon: 'Music', color: 'text-njz-accent-purple', description: 'Binaural beats & ambient', status: 'active' },
+  { id: 'blocker', name: 'Blocker', icon: 'Shield', color: 'text-njz-accent-red', description: 'Distraction blocking', status: 'active' },
+  { id: 'writing', name: 'Writing', icon: 'PenTool', color: 'text-njz-accent-orange', description: 'Manuscript & streaks', status: 'active' },
+  { id: 'brain-train', name: 'Brain Train', icon: 'Brain', color: 'text-njz-accent-teal', description: 'Cognitive training', status: 'active' },
   { id: 'polyworld', name: 'PolyCo', icon: 'Globe', color: 'text-njz-accent-green', description: 'Pixel metaverse', status: 'coming-soon' },
 ]
 
@@ -58,6 +64,21 @@ function App() {
         return <WelcomeModule onSelectModule={handleModuleSelect} modules={MODULES} />
       case 'focus':
         return <FocusModule />
+      case 'tasks':
+        return <TasksModule />
+      case 'soundscapes':
+        return <SoundscapesModule />
+      case 'writing':
+        return <WritingModule />
+      case 'blocker':
+        return <BlockerModule />
+      case 'brain-train':
+        return <BrainTrainModule />
+      case 'settings':
+      case 'account':
+      case 'preferences':
+      case 'api-keys':
+        return <SettingsModule />
       default:
         return <WelcomeModule onSelectModule={handleModuleSelect} modules={MODULES} />
     }
