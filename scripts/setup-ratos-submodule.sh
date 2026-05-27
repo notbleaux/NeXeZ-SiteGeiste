@@ -4,8 +4,8 @@
 
 set -e
 
-REPO_ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
-SITEGEISTE="$REPO_ROOT/02-PRIME-SITEGEISTE/01-NeXeZ-SiteGeiste"
+REPO_ROOT="$(cd "$(dirname "$0")/../../.." && pwd)"
+SITEGEISTE="$(cd "$(dirname "$0")/.." && pwd)"
 RATOS="$REPO_ROOT/01-PRIME-RAT-OS/01-satorXrotas"
 
 echo "========================================"
