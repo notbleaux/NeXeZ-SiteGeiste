@@ -20,13 +20,16 @@ import { ExperimentModule } from './components/modules/ExperimentModule'
 import { PRDModule } from './components/modules/PRDModule'
 import { StudioModule } from './components/modules/StudioModule'
 import { FilesModule } from './components/modules/FilesModule'
+import { KnowledgeBaseModule } from './components/modules/KnowledgeBaseModule'
+import { DocReviewModule } from './components/modules/DocReviewModule'
+import { MCPModule } from './components/modules/MCPModule'
 
 const WORKSPACES: Workspace[] = [
-  { id: 'home', name: 'Home', icon: 'Home', modules: ['welcome', 'focus', 'tasks', 'truth-table', 'experiment', 'studio', 'files'] },
-  { id: 'rat-os', name: 'RAT-OS', icon: 'Zap', modules: ['focus', 'soundscapes', 'blocker', 'writing', 'brain-train', 'truth-table', 'experiment', 'studio', 'files', 'polyworld'] },
-  { id: 'zesportexte', name: 'ZeSporteXte', icon: 'Trophy', modules: ['rotas', 'sator', 'opera', 'arepo', 'truth-table', 'experiment', 'prd'] },
-  { id: 'nuevue', name: 'NueVue', icon: 'Palette', modules: ['assets', 'viz', 'stream', 'studio', 'files'] },
-  { id: 'settings', name: 'Settings', icon: 'Settings', modules: ['account', 'preferences', 'api-keys'] },
+  { id: 'home', name: 'Home', icon: 'Home', modules: ['welcome', 'focus', 'tasks', 'truth-table', 'experiment', 'studio', 'files', 'knowledge-base', 'doc-review'] },
+  { id: 'rat-os', name: 'RAT-OS', icon: 'Zap', modules: ['focus', 'soundscapes', 'blocker', 'writing', 'brain-train', 'truth-table', 'experiment', 'studio', 'files', 'mcp', 'polyworld'] },
+  { id: 'zesportexte', name: 'ZeSporteXte', icon: 'Trophy', modules: ['rotas', 'sator', 'opera', 'arepo', 'truth-table', 'experiment', 'prd', 'doc-review'] },
+  { id: 'nuevue', name: 'NueVue', icon: 'Palette', modules: ['assets', 'viz', 'stream', 'studio', 'files', 'knowledge-base'] },
+  { id: 'settings', name: 'Settings', icon: 'Settings', modules: ['account', 'preferences', 'api-keys', 'mcp'] },
 ]
 
 const MODULES: Module[] = [
@@ -42,6 +45,9 @@ const MODULES: Module[] = [
   { id: 'prd', name: 'PRD Manager', icon: 'FileText', color: 'text-njz-accent-teal', description: 'Product requirements', status: 'active' },
   { id: 'studio', name: 'Studio', icon: 'Layout', color: 'text-njz-accent-purple', description: 'Research/WIP/Standby boards', status: 'active' },
   { id: 'files', name: 'Files', icon: 'Folder', color: 'text-njz-accent-orange', description: 'System/OS/Hardcopy', status: 'active' },
+  { id: 'knowledge-base', name: 'Knowledge Base', icon: 'BookOpen', color: 'text-njz-accent-teal', description: 'Company & Employee docs', status: 'active' },
+  { id: 'doc-review', name: 'Doc Review', icon: 'MessageSquare', color: 'text-njz-accent-orange', description: 'Async review & approval', status: 'active' },
+  { id: 'mcp', name: 'MCP Backend', icon: 'Server', color: 'text-njz-accent-teal', description: 'RAT-OS API connection', status: 'active' },
   { id: 'polyworld', name: 'PolyCo', icon: 'Globe', color: 'text-njz-accent-green', description: 'Pixel metaverse', status: 'coming-soon' },
   { id: 'settings', name: 'Settings', icon: 'Settings', color: 'text-njz-accent-teal', description: 'App settings', status: 'active' },
 ]
@@ -95,6 +101,12 @@ function App() {
         return <StudioModule />
       case 'files':
         return <FilesModule />
+      case 'knowledge-base':
+        return <KnowledgeBaseModule />
+      case 'doc-review':
+        return <DocReviewModule />
+      case 'mcp':
+        return <MCPModule />
       case 'settings':
       case 'account':
       case 'preferences':
