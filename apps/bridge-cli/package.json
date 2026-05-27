@@ -1,7 +1,6 @@
 {
-  "name": "@nuevue/apps-bridge-cli",
+  "name": "@nuevue/bridge-cli",
   "version": "0.0.1",
   "private": true,
-  "type": "module",
-  "description": "bridge-cli application workspace"
+  "description": "CLI bridge for NueVue agent interactions and devtools"
 }

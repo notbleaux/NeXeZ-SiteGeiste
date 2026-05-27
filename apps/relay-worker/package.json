@@ -1,7 +1,6 @@
 {
-  "name": "@nuevue/apps-relay-worker",
+  "name": "@nuevue/relay-worker",
   "version": "0.0.1",
   "private": true,
-  "type": "module",
-  "description": "relay-worker application workspace"
+  "description": "Cloudflare Worker relay for NueVue event routing"
 }

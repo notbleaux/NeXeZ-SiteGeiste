@@ -1,7 +1,6 @@
 {
-  "name": "@nuevue/apps-relay-registry",
+  "name": "@nuevue/relay-registry",
   "version": "0.0.1",
   "private": true,
-  "type": "module",
-  "description": "relay-registry application workspace"
+  "description": "Relay registry for NueVue distributed agent network"
 }

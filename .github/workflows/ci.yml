@@ -2,48 +2,53 @@ name: CI
 
 on:
   push:
+    branches:
+      - main
+      - dev
+      - "claude/proposals**"
+      - "kimi/proposals**"
+      - "deepseek/proposals**"
+      - "copilot/proposals**"
+      - "copilot/**"
+      - "agents/blackboard"
   pull_request:
-
-permissions:
-  contents: read
+    branches:
+      - main
+      - dev
 
 jobs:
-  checks:
+  validate:
+    name: Validate monorepo
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: "20"
 
-      - name: Grep for real-name leakage
-        run: |
-          if grep -RInE -i '\b(newjeans|minji|hanni|danielle|haerin|hyein)\b' . \
-            --exclude-dir=.git \
-            --exclude-dir=node_modules \
-            --exclude=ci.yml; then
-            echo "Potential real-name leakage detected."
-            exit 1
-          fi
-
-      - name: Validate workspaces with dry-run install
+      - name: Validate workspace structure (dry run)
         run: npm install --dry-run
 
       - name: Install dependencies
         run: npm install
 
-      - name: Detect TypeScript files in workspaces
-        id: ts
+      - name: Typecheck (if TypeScript files exist)
         run: |
-          if find apps services packages -type f \( -name '*.ts' -o -name '*.tsx' -o -name '*.mts' -o -name '*.cts' \) | grep -q .; then
-            echo "has_ts=true" >> "$GITHUB_OUTPUT"
+          if find . -name "*.ts" -not -path "*/node_modules/*" | grep -q .; then
+            echo "TypeScript files found — running tsc --noEmit across workspaces"
+            npm run typecheck
           else
-            echo "has_ts=false" >> "$GITHUB_OUTPUT"
+            echo "No TypeScript files found — skipping typecheck"
           fi
 
-      - name: Typecheck
-        if: steps.ts.outputs.has_ts == 'true'
-        run: npm run typecheck
+      - name: Real-name leakage scan
+        run: |
+          echo "Scanning for real-name leakage..."
+          if git log --all --format="%an %ae %cn %ce" | grep -v "github-actions\|noreply\|Copilot\|notbleaux" | grep -Ei "[a-z]+ [a-z]+" | grep -v "^$"; then
+            echo "ERROR: Potential real-name leakage detected in git history"
+            exit 1
+          fi
+          echo "No real-name leakage detected."

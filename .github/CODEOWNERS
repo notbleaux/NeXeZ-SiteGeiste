@@ -1,5 +1,11 @@
-# Default ownership
-* @notbleaux
+# CODEOWNERS — NueVue Monorepo
+#
+# The project owner (@notbleaux) is the default owner of all paths.
+# All pull requests require at least one approval from the project owner.
+#
+# Note: Claude acts as Foreman and provides advisory code-review approval,
+# but Claude operates through the project owner's review action. No GitHub
+# username is assigned to Claude here because Claude does not hold a
+# GitHub account that can be listed as a CODEOWNERS entry.
 
-# Claude reviewer placeholder (documented; replace with actual GitHub handle when available)
-# * @claude-foreman
+* @notbleaux

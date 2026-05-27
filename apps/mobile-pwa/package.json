@@ -1,7 +1,6 @@
 {
-  "name": "@nuevue/apps-mobile-pwa",
+  "name": "@nuevue/mobile-pwa",
   "version": "0.0.1",
   "private": true,
-  "type": "module",
-  "description": "mobile-pwa application workspace"
+  "description": "NueVue progressive web app for mobile clients"
 }

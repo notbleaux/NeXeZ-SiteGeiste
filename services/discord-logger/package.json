@@ -1,7 +1,6 @@
 {
-  "name": "@nuevue/services-discord-logger",
+  "name": "@nuevue/discord-logger",
   "version": "0.0.1",
   "private": true,
-  "type": "module",
-  "description": "discord-logger service workspace"
+  "description": "NueVue Discord logging and event mirror service"
 }

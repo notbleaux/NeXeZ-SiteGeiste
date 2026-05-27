@@ -1,7 +1,6 @@
 {
-  "name": "@nuevue/services-broker",
+  "name": "@nuevue/broker",
   "version": "0.0.1",
   "private": true,
-  "type": "module",
-  "description": "broker service workspace"
+  "description": "NueVue message broker service"
 }

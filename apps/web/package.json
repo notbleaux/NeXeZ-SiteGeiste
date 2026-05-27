@@ -1,7 +1,6 @@
 {
-  "name": "@nuevue/apps-web",
+  "name": "@nuevue/web",
   "version": "0.0.1",
   "private": true,
-  "type": "module",
-  "description": "web application workspace"
+  "description": "NueVue web application — Phase 1 project nexus front-end"
 }

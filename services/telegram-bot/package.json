@@ -1,7 +1,6 @@
 {
-  "name": "@nuevue/services-telegram-bot",
+  "name": "@nuevue/telegram-bot",
   "version": "0.0.1",
   "private": true,
-  "type": "module",
-  "description": "telegram-bot service workspace"
+  "description": "NueVue Telegram bot integration service"
 }

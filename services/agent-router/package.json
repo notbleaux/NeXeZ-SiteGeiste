@@ -1,7 +1,6 @@
 {
-  "name": "@nuevue/services-agent-router",
+  "name": "@nuevue/agent-router",
   "version": "0.0.1",
   "private": true,
-  "type": "module",
-  "description": "agent-router service workspace"
+  "description": "NueVue agent routing and dispatch service"
 }

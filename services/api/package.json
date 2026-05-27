@@ -1,7 +1,6 @@
 {
-  "name": "@nuevue/services-api",
+  "name": "@nuevue/api",
   "version": "0.0.1",
   "private": true,
-  "type": "module",
-  "description": "api service workspace"
+  "description": "NueVue core API service"
 }

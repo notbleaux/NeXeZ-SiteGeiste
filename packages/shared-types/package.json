@@ -1,7 +1,7 @@
 {
-  "name": "@nuevue/packages-shared-types",
+  "name": "@nuevue/shared-types",
   "version": "0.0.1",
   "private": true,
   "type": "module",
-  "description": "shared-types package workspace"
+  "description": "Shared TypeScript type definitions for the NueVue monorepo"
 }
