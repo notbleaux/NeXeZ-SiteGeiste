@@ -1,0 +1,6 @@
+{
+  "name": "@nuevue/relay-registry",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Relay registry for NueVue distributed agent network"
+}
