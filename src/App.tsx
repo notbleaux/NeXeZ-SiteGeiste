@@ -15,10 +15,12 @@ import { WritingModule } from './components/modules/WritingModule'
 import { BlockerModule } from './components/modules/BlockerModule'
 import { BrainTrainModule } from './components/modules/BrainTrainModule'
 import { SettingsModule } from './components/modules/SettingsModule'
+import { TruthTableModule } from './components/modules/TruthTableModule'
+import { ExperimentModule } from './components/modules/ExperimentModule'
 
 const WORKSPACES: Workspace[] = [
-  { id: 'home', name: 'Home', icon: 'Home', modules: ['welcome', 'focus', 'tasks'] },
-  { id: 'rat-os', name: 'RAT-OS', icon: 'Zap', modules: ['focus', 'soundscapes', 'blocker', 'writing', 'brain-train', 'polyworld'] },
+  { id: 'home', name: 'Home', icon: 'Home', modules: ['welcome', 'focus', 'tasks', 'truth-table', 'experiment'] },
+  { id: 'rat-os', name: 'RAT-OS', icon: 'Zap', modules: ['focus', 'soundscapes', 'blocker', 'writing', 'brain-train', 'truth-table', 'experiment', 'polyworld'] },
   { id: 'zesportexte', name: 'ZeSporteXte', icon: 'Trophy', modules: ['rotas', 'sator', 'opera', 'arepo'] },
   { id: 'nuevue', name: 'NueVue', icon: 'Palette', modules: ['assets', 'viz', 'stream'] },
   { id: 'settings', name: 'Settings', icon: 'Settings', modules: ['account', 'preferences', 'api-keys'] },
@@ -32,7 +34,10 @@ const MODULES: Module[] = [
   { id: 'blocker', name: 'Blocker', icon: 'Shield', color: 'text-njz-accent-red', description: 'Distraction blocking', status: 'active' },
   { id: 'writing', name: 'Writing', icon: 'PenTool', color: 'text-njz-accent-orange', description: 'Manuscript & streaks', status: 'active' },
   { id: 'brain-train', name: 'Brain Train', icon: 'Brain', color: 'text-njz-accent-teal', description: 'Cognitive training', status: 'active' },
+  { id: 'truth-table', name: 'Truth Table', icon: 'Shield', color: 'text-blue-400', description: 'Helix fact-checking', status: 'active' },
+  { id: 'experiment', name: 'Experiments', icon: 'Lightbulb', color: 'text-yellow-400', description: 'Edison hypothesis testing', status: 'active' },
   { id: 'polyworld', name: 'PolyCo', icon: 'Globe', color: 'text-njz-accent-green', description: 'Pixel metaverse', status: 'coming-soon' },
+  { id: 'settings', name: 'Settings', icon: 'Settings', color: 'text-njz-accent-teal', description: 'App settings', status: 'active' },
 ]
 
 function App() {
@@ -74,6 +79,10 @@ function App() {
         return <BlockerModule />
       case 'brain-train':
         return <BrainTrainModule />
+      case 'truth-table':
+        return <TruthTableModule />
+      case 'experiment':
+        return <ExperimentModule />
       case 'settings':
       case 'account':
       case 'preferences':
