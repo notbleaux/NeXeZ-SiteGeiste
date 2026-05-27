@@ -2,5 +2,6 @@
   "name": "@nuevue/broker",
   "version": "0.0.1",
   "private": true,
+  "type": "module",
   "description": "NueVue message broker service"
 }
