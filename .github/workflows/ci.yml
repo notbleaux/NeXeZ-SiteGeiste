@@ -54,4 +54,8 @@ jobs:
             echo "ERROR: Potential real-name leakage detected in git history"
             exit 1
           fi
+          if git grep -InE -i '\b(newjeans|minji|hanni|danielle|haerin|hyein)\b' -- . ':(exclude).github/workflows/ci.yml'; then
+            echo "ERROR: Potential real-name leakage detected in repository files"
+            exit 1
+          fi
           echo "No real-name leakage detected."
