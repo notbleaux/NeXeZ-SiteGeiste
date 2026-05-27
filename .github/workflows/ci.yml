@@ -1,0 +1,63 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+      - dev
+      - "claude/proposals**"
+      - "kimi/proposals**"
+      - "deepseek/proposals**"
+      - "copilot/proposals**"
+      - "copilot/**"
+      - "agents/blackboard"
+  pull_request:
+    branches:
+      - main
+      - dev
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Validate monorepo
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Validate workspace structure (dry run)
+        run: npm install --dry-run
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Typecheck (if TypeScript files exist)
+        run: |
+          if find . -name "*.ts" -not -path "*/node_modules/*" | grep -q .; then
+            echo "TypeScript files found — running workspace typecheck"
+            npm run typecheck
+          else
+            echo "No TypeScript files found — skipping typecheck"
+          fi
+
+      - name: Real-name leakage scan
+        run: |
+          echo "Scanning for real-name leakage..."
+          if git log --all --format="%an %ae %cn %ce %s" | grep -Eiq '\b(newjeans|minji|hanni|danielle|haerin|hyein)\b'; then
+            echo "ERROR: Potential real-name leakage detected in git history"
+            exit 1
+          fi
+          if git grep -InE -i '\b(newjeans|minji|hanni|danielle|haerin|hyein)\b' -- . ':(exclude).github/workflows/ci.yml'; then
+            echo "ERROR: Potential real-name leakage detected in repository files"
+            exit 1
+          fi
+          echo "No real-name leakage detected."
