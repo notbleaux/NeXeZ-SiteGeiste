@@ -18,12 +18,14 @@ import { SettingsModule } from './components/modules/SettingsModule'
 import { TruthTableModule } from './components/modules/TruthTableModule'
 import { ExperimentModule } from './components/modules/ExperimentModule'
 import { PRDModule } from './components/modules/PRDModule'
+import { StudioModule } from './components/modules/StudioModule'
+import { FilesModule } from './components/modules/FilesModule'
 
 const WORKSPACES: Workspace[] = [
-  { id: 'home', name: 'Home', icon: 'Home', modules: ['welcome', 'focus', 'tasks', 'truth-table', 'experiment'] },
-  { id: 'rat-os', name: 'RAT-OS', icon: 'Zap', modules: ['focus', 'soundscapes', 'blocker', 'writing', 'brain-train', 'truth-table', 'experiment', 'polyworld'] },
+  { id: 'home', name: 'Home', icon: 'Home', modules: ['welcome', 'focus', 'tasks', 'truth-table', 'experiment', 'studio', 'files'] },
+  { id: 'rat-os', name: 'RAT-OS', icon: 'Zap', modules: ['focus', 'soundscapes', 'blocker', 'writing', 'brain-train', 'truth-table', 'experiment', 'studio', 'files', 'polyworld'] },
   { id: 'zesportexte', name: 'ZeSporteXte', icon: 'Trophy', modules: ['rotas', 'sator', 'opera', 'arepo', 'truth-table', 'experiment', 'prd'] },
-  { id: 'nuevue', name: 'NueVue', icon: 'Palette', modules: ['assets', 'viz', 'stream'] },
+  { id: 'nuevue', name: 'NueVue', icon: 'Palette', modules: ['assets', 'viz', 'stream', 'studio', 'files'] },
   { id: 'settings', name: 'Settings', icon: 'Settings', modules: ['account', 'preferences', 'api-keys'] },
 ]
 
@@ -38,6 +40,8 @@ const MODULES: Module[] = [
   { id: 'truth-table', name: 'Truth Table', icon: 'Shield', color: 'text-blue-400', description: 'Helix fact-checking', status: 'active' },
   { id: 'experiment', name: 'Experiments', icon: 'Lightbulb', color: 'text-yellow-400', description: 'Edison hypothesis testing', status: 'active' },
   { id: 'prd', name: 'PRD Manager', icon: 'FileText', color: 'text-njz-accent-teal', description: 'Product requirements', status: 'active' },
+  { id: 'studio', name: 'Studio', icon: 'Layout', color: 'text-njz-accent-purple', description: 'Research/WIP/Standby boards', status: 'active' },
+  { id: 'files', name: 'Files', icon: 'Folder', color: 'text-njz-accent-orange', description: 'System/OS/Hardcopy', status: 'active' },
   { id: 'polyworld', name: 'PolyCo', icon: 'Globe', color: 'text-njz-accent-green', description: 'Pixel metaverse', status: 'coming-soon' },
   { id: 'settings', name: 'Settings', icon: 'Settings', color: 'text-njz-accent-teal', description: 'App settings', status: 'active' },
 ]
@@ -87,6 +91,10 @@ function App() {
         return <ExperimentModule />
       case 'prd':
         return <PRDModule />
+      case 'studio':
+        return <StudioModule />
+      case 'files':
+        return <FilesModule />
       case 'settings':
       case 'account':
       case 'preferences':
